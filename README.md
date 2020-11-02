@@ -2,7 +2,7 @@
 
 ## Steps to setup and run
 
-1. `git clone git@github.com:devpointlabs/qa-engine.git <project-name>`
+1. `git clone git@github.com:Layrasm/qa-engine.git <project-name>`
 
 2. `cd project-name`
 3. `bundle install`
