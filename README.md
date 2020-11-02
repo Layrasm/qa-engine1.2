@@ -31,12 +31,5 @@
     `git commit -m`
     `git push origin master`
 
-push
-
-  const getAnswers = async () => {
-    let response = await Axios.get('/api/questions');
-    setAnswers(res.data);
-  } catch(err) {
-    alert("You done effed up A-Aron.");
-    }
-  }
+### handling images
+add .env file and add cloudinary keys
