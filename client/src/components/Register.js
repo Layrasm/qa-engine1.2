@@ -2,14 +2,16 @@ import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { useFormInput } from "../customHooks/useFormInput";
 import { AuthContext } from "../providers/AuthProvider";
+import {Form, Input, Button, Container} from "react-bootstrap";
+
 const Register = (props) => {
-  const email = useFormInput("testx@test.com", "Email");
-  const password = useFormInput("123456", "Password");
+  const email = useFormInput("", "Email");
+  const password = useFormInput("", "Password");
   const firstName = useFormInput("","First Name")
   const lastName = useFormInput("", "Last Name")
   const cohort = useFormInput("", "Cohort")
 
-  const passwordConfirmation = useFormInput("123456", "password Confirmation");
+  const passwordConfirmation = useFormInput("", "Password Confirmation");
   const { handleRegister, authLoading, authErrors } = useContext(AuthContext);
   const history = useHistory();
   // history.push('/pathname') => will take us to route
@@ -33,13 +35,14 @@ const Register = (props) => {
       );
     }
   };
-  // if (authLoading) {
-  //   return (
-  //     <>
-  //       <p>loading</p>
-  //     </>
-  //   );
-  // }
+  if (authLoading) {
+    return (
+      <>
+        <p>loading</p>
+      </>
+    );
+  }
+
   return (
     <div>
       {authErrors && (
@@ -50,12 +53,33 @@ const Register = (props) => {
         </>
       )}
       <h1>Register</h1>
-      <form onSubmit={handleSubmit}>
-        <p>{email.label}</p>
-        <input autoFocus {...email} />
-        <br />
-        <br />
-        <p>{firstName.label}</p>
+      <Form onSubmit={handleSubmit}>
+        <Form.Group>
+          <input type="text" autoFocus {...email}/>
+        </Form.Group>
+        <br/>
+        <Form.Group>
+          <input type="text" {...firstName} />
+        </Form.Group>
+        <br/>
+        <Form.Group>
+          <input type="text" {...lastName} />
+        </Form.Group>
+        <br/>
+        <Form.Group> 
+          <input type="text" {...cohort} />
+        </Form.Group>
+        <br/>
+        <Form.Group>
+          <input type="text" {...password} />
+        </Form.Group>
+        <br/>
+        <Form.Group>
+          <input  type="text"{...passwordConfirmation} />
+        </Form.Group>
+        <br/>
+        
+        {/* <p>{firstName.label}</p>
         <input  {...firstName} />
         <p>{lastName.label}</p>
         <input  {...lastName} />
@@ -64,13 +88,13 @@ const Register = (props) => {
         <p>{password.label}</p>
         <input type="password" {...password} />
         <p>{passwordConfirmation.label}</p>
-        <input type="password" {...passwordConfirmation} />
+        <input type="password" {...passwordConfirmation} /> */}
         {authLoading ? (
-          <button disabled> spinner goes here</button>
+          <Button disabled> spinner goes here</Button>
         ) : (
-          <button type="submit">register</button>
+          <Button variant="primary" type="submit">Register</Button>
         )}
-      </form>
+      </Form>
     </div>
   );
 };
