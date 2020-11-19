@@ -1,15 +1,18 @@
 import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
-
+import {Form, Button} from "react-bootstrap";
 import { useFormInput } from "../customHooks/useFormInput";
 import { AuthContext } from "../providers/AuthProvider";
+
+
+
 const Login = (props) => {
   const history = useHistory();
   const { handleLogin, setUser, authLoading, authErrors } = useContext(
     AuthContext
   );
-  const email = useFormInput("testx2@test.com", "Email");
-  const password = useFormInput("123456", "Password");
+  const email = useFormInput("", "Email");
+  const password = useFormInput("", "Password");
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(email.value);
@@ -39,17 +42,19 @@ const Login = (props) => {
         </>
       )}
       <h1>Login</h1>
-      <form onSubmit={handleSubmit}>
-        <p>{email.label}</p>
-        <input autoFocus {...email} />
-        <p>{password.label}</p>
-        <input type="password" {...password} />
+      <Form onSubmit={handleSubmit}>
+        <Form.Group>
+          <Form.Control autoFocus {...email} />
+        </Form.Group>
+        <Form.Group>
+          <Form.Control type="password" {...password} />
+        </Form.Group>
         {authLoading ? (
-          <button disabled> spinner goes here</button>
+          <Button disabled>Loading</Button>
         ) : (
-          <button type="submit">login</button>
+          <Button type="submit">login</Button>
         )}
-      </form>
+      </Form>
     </div>
   );
 };

@@ -71,11 +71,11 @@ const Register = (props) => {
         </Form.Group>
         <br/>
         <Form.Group>
-          <input type="text" {...password} />
+          <input type="password" {...password} />
         </Form.Group>
         <br/>
         <Form.Group>
-          <input  type="text"{...passwordConfirmation} />
+          <input type="password"{...passwordConfirmation} />
         </Form.Group>
         <br/>
         
