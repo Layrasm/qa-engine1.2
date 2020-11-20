@@ -10,29 +10,16 @@ import {Button} from "semantic-ui-react";
 
 const Login = (props) => {
   const history = useHistory();
-  const { handleLogin, setUser, authLoading, authErrors } = useContext(
+  const { handleLogin, authLoading, authErrors } = useContext(
     AuthContext
   );
   const email = useFormInput("", "Email");
   const password = useFormInput("", "Password");
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(email.value);
-    console.log(password.value);
     //api call here pass {email, password}
     handleLogin({ email: email.value, password: password.value }, history);
-    // could put login fucntionalty here in Login as long as a use the setUser function from my provider, to set the user
-    // try {
-    //   let res = await axios.post("api/auth/sign_in", {
-    //     email: email.value,
-    //     password: password.value,
-    //   });
-    //   setUser(res.data.data);
-    //   history.push("/");
-    // } catch (err) {
-    //   alert("error in logging in");
-    //   debugger;
-    // }
+ 
   };
   return (
     <div>

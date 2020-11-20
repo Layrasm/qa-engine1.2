@@ -22,13 +22,11 @@ class SearchBar extends React.Component {
   componentWillUpdate() {
     this.props.history.listen((location, action) => {
       if (action === "PUSH") {
-        // debugger
-        console.log("Hit");
+
         this.clearSearch();
         // this.setState({search: null, boozes: [], drinks: []})
       }
-      console.log(location, action);
-      // Do stuff.
+  
     });
   }
 

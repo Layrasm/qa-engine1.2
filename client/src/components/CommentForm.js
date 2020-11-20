@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import Axios from "axios";
 import ReactQuill, { Quill, Toolbar } from 'react-quill';
 import QuestionForm from './QuestionForm';
 

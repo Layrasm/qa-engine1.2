@@ -10,8 +10,6 @@ import ProtecedRoute from "./components/ProtectedRoute";
 import MyQuestions from "./components/MyQuestions";
 import QuestionForm from "./components/QuestionForm";
 import QuestionView from "./components/QuestionView";
-import Answer from "./components/Answer";
-import AnswerForm from "./components/AnswerForm";
 import Upvote from "./components/Upvote";
 import AskQuestion from './components/AskQuestion';
 import LandingPage from './components/LandingPage';

@@ -1,20 +1,14 @@
-import React, { useEffect, useState, useContext } from "react";
-import Axios from "axios";
-import QuestionForm from "./QuestionForm";
-import { Link } from "react-router-dom";
+import React, { useEffect, useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import ImageUploader from '../images/ImageUploader';
-import { Card, Icon, Image, Container, Table } from 'semantic-ui-react';
+import { Card, Image, Container} from 'semantic-ui-react';
 import Leaderboard from './Leaderboard';
 
 
 const MyProfile = (props) => {
   
   const { user } = useContext(AuthContext);
-  const [image, setImage] = useState([]);
   
-  
-    // console.log("Here's the passed down prop", props.match.params.id);
   
     useEffect(() => {
   

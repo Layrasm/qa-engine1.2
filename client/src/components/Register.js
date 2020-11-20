@@ -36,14 +36,7 @@ const Register = (props) => {
       );
     }
   };
-  if (authLoading) {
-    return (
-      <>
-        <p>loading</p>
-      </>
-    );
-  }
-
+  
   return (
     <div>
       {authErrors && (
