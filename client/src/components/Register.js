@@ -2,7 +2,8 @@ import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { useFormInput } from "../customHooks/useFormInput";
 import { AuthContext } from "../providers/AuthProvider";
-import {Form, Input, Button, Container} from "react-bootstrap";
+import {Form, Container} from "react-bootstrap";
+import {Button} from "semantic-ui-react";
 
 const Register = (props) => {
   const email = useFormInput("", "Email");
@@ -52,49 +53,51 @@ const Register = (props) => {
           ))}
         </>
       )}
+      <Container style={{width:"55%"}}>
       <h1>Register</h1>
       <Form onSubmit={handleSubmit}>
         <Form.Group>
-          <input type="text" autoFocus {...email}/>
+          <Form.Label>Email</Form.Label>
+          <Form.Control className="bg-light" placeholder="Enter Email" type="email" autoFocus {...email}/>
         </Form.Group>
-        <br/>
-        <Form.Group>
-          <input type="text" {...firstName} />
-        </Form.Group>
-        <br/>
-        <Form.Group>
-          <input type="text" {...lastName} />
-        </Form.Group>
-        <br/>
-        <Form.Group> 
-          <input type="text" {...cohort} />
-        </Form.Group>
-        <br/>
-        <Form.Group>
-          <input type="password" {...password} />
-        </Form.Group>
-        <br/>
-        <Form.Group>
-          <input type="password"{...passwordConfirmation} />
-        </Form.Group>
-        <br/>
         
-        {/* <p>{firstName.label}</p>
-        <input  {...firstName} />
-        <p>{lastName.label}</p>
-        <input  {...lastName} />
-        <p>{cohort.label}</p>
-        <input  {...cohort} />
-        <p>{password.label}</p>
-        <input type="password" {...password} />
-        <p>{passwordConfirmation.label}</p>
-        <input type="password" {...passwordConfirmation} /> */}
+        <Form.Group>
+          <Form.Label>First Name</Form.Label>
+          <Form.Control className="bg-light" placeholder="Enter First Name" type="text" {...firstName} />
+        </Form.Group>
+        
+        <Form.Group>
+          <Form.Label>Last Name</Form.Label>
+          <Form.Control className="bg-light" placeholder="Enter Last Name" type="text" {...lastName} />
+        </Form.Group>
+        
+        <Form.Group> 
+          <Form.Label>Cohort</Form.Label>
+          <Form.Control className="bg-light" defaultValue="...Cohort" as="select" {...cohort}>
+            <option>Winter</option>
+            <option>Spring</option>
+            <option>Summer</option>
+            <option>Fall</option>
+          </Form.Control>
+        </Form.Group>
+       
+        <Form.Group>
+          <Form.Label>Password</Form.Label>
+          <Form.Control className="bg-light" placeholder="Enter Password" type="password" {...password} />
+        </Form.Group>
+       
+        <Form.Group>
+          <Form.Label>Password Confirmation</Form.Label>
+          <Form.Control className="bg-light" placeholder="Confirm Password" type="password"{...passwordConfirmation} />
+        </Form.Group>
+      
         {authLoading ? (
-          <Button disabled> spinner goes here</Button>
+          <Button disabled>Registering</Button>
         ) : (
-          <Button variant="primary" type="submit">Register</Button>
+          <Button color='vk' variant="primary" type="submit">Register</Button>
         )}
       </Form>
+      </Container>
     </div>
   );
 };

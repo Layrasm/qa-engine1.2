@@ -8,7 +8,7 @@ import * as serviceWorker from "./serviceWorker";
 import { initMiddleware } from "devise-axios";
 
 // Remove this and sematic-ui-react  sematic-ui-css in package.json if you don't want to use
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter } from "react-router-dom";
 import "semantic-ui-css/semantic.min.css";
 import AuthProvider from "./providers/AuthProvider";

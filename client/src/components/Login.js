@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
-import {Form, Button} from "react-bootstrap";
+import {Form, Container} from "react-bootstrap";
 import { useFormInput } from "../customHooks/useFormInput";
 import { AuthContext } from "../providers/AuthProvider";
+import {Button} from "semantic-ui-react";
+
 
 
 
@@ -41,20 +43,24 @@ const Login = (props) => {
           ))}
         </>
       )}
+      <Container style={{width:"55%"}}>
       <h1>Login</h1>
       <Form onSubmit={handleSubmit}>
         <Form.Group>
-          <Form.Control autoFocus {...email} />
+          <Form.Label>Email Address</Form.Label>
+          <Form.Control className="bg-light" placeholder="Enter Email" type="email" autoFocus {...email} />
         </Form.Group>
         <Form.Group>
-          <Form.Control type="password" {...password} />
+          <Form.Label>Password</Form.Label>
+          <Form.Control className="bg-light" placeholder="Enter Password" type="password" {...password} />
         </Form.Group>
         {authLoading ? (
           <Button disabled>Loading</Button>
         ) : (
-          <Button type="submit">login</Button>
+          <Button color='vk' type="submit">Login</Button>
         )}
       </Form>
+      </Container>
     </div>
   );
 };

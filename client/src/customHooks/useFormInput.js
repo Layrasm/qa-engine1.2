@@ -21,7 +21,6 @@ export const useFormInput = (initialValue, name) => {
   return {
     label: name,
     required: "required",
-    placeholder: `Enter ${name}`,
     onChange: (e) => setX(e.target.value),
     value: x,
   };
